@@ -1,0 +1,77 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id       String       @id @default(auto()) @map("_id") @db.ObjectId
+  customerName         String
+  contactLastName      String
+  contactFirstName     String
+  phone                String
+  addressLine1         String
+  addressLine2         String?
+  city                 String
+  state                String?
+  postalCode           String?
+  country              String
+  salesRepEmployeeNumber Int?
+  creditLimit          Float?
+
+  order Order[]
+
+  payment Payment[]
+}
+
+model Order {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  orderDate     DateTime
+  requiredDate  DateTime
+  shippedDate   DateTime?
+  status        String
+  comments      String?
+  
+  customer Customer @relation(fields: [customerNumber], references: [id])
+  customerNumber String @db.ObjectId
+
+  orderDetail OrderDetail[]
+
+}
+
+model Payment {
+  checkNumber     String   
+  paymentDate     DateTime
+  amount          Float
+
+  author   Customer @relation(fields: [customerNumber], references: [id])
+  customerNumber  String      @id @default(auto()) @map("_id") @db.ObjectId
+  
+}
+
+
+model OrderDetail {
+  quantityOrdered       Int
+  priceEach             Float
+  orderLineNumber       Int
+  
+  order                 Order @relation(fields: [orderId], references: [id])
+  orderId               String       @id @default(auto()) @map("_id") @db.ObjectId
+
+  product               Product @relation(fields: [productCode], references: [id])
+  productCode           String @unique @db.ObjectId
+}
+
+
+model Product {
+  id     String    @id @default(auto()) @map("_id") @db.ObjectId
+  productName        String
+  productLine        String
+  productScale       String
+  productVendor      String
+  productDescription String
+  quantityInStock    Int
+  buyPrice           Float
+  MSRP               Float
+
+  orderDetail   OrderDetail? 
+}
