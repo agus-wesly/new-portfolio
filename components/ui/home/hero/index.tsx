@@ -3,7 +3,7 @@ import Github from '@/components/shared/github'
 
 function Hero() {
   return (
-    <div className="container sm:max-w-2xl mb-10 mt-12">
+    <div className="container sm:max-w-2xl mb-36 mt-12">
       <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.15] text-foreground sm:text-6xl sm:leading-[1.15]">
         Hi, I'm Wesly
         <br />
@@ -19,13 +19,13 @@ function Hero() {
       </p>
 
       <div className="flex justify-center gap-5 mt-10">
-        <button className="rounded-full border border-black bg-black px-5 py-2 text-sm text-white shadow-lg transition-all hover:bg-white hover:text-black">
+        <button className="rounded-full border border-background bg-foreground px-4 sm:px-5 sm:py-2 text-sm text-background shadow-lg transition-all hover:bg-background hover:text-foreground">
           Download CV
         </button>
 
-        <button className="flex items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-5 py-2 shadow-lg transition-all hover:border-gray-800">
+        <button className="flex items-center justify-center space-x-1 sm:space-x-2 rounded-full border border-border bg-background px-5 py-2 shadow-lg transition-all hover:border-foreground">
           <Github className="w-5 h-5 text-foreground" />
-          <span>View my github</span>
+          <span>View github</span>
         </button>
       </div>
     </div>

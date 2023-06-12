@@ -17,7 +17,7 @@ function Project() {
       </p>
 
       <div className="mt-10">
-        <Tabs defaultValue="account" className="w-full">
+        <Tabs defaultValue="react" className="w-full">
           <TabsList>
             <TabsTrigger value="react">
               <div>
@@ -35,7 +35,7 @@ function Project() {
           <TabsContent value="react" className="my-10">
             <ReactProject />
           </TabsContent>
-          <TabsContent value="vue">
+          <TabsContent value="vue" className="my-10">
             <VueProject />
           </TabsContent>
         </Tabs>

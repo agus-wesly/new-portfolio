@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import { satoshi, inter } from '@/styles/fonts'
 import { cn } from '@/lib/utils'
+import Provider from '@/components/Provider'
 
 export const metadata = {
   title: 'Agus Wesly',
@@ -13,8 +14,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={cn(satoshi.variable, inter.variable)}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn(satoshi.variable, inter.variable)}>
+        <Provider attribute="class" defaultTheme="system">
+          {children}
+        </Provider>
+      </body>
     </html>
   )
 }

@@ -5,7 +5,7 @@ import NavMobile from '@/components/ui/home/nav-mobile'
 
 function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col font-default">
       <Nav />
       <NavMobile />
       {children}

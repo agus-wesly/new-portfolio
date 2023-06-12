@@ -51,7 +51,7 @@ function NavMobile() {
     >
       <motion.div
         variants={sidebar}
-        className="absolute inset-0 right-0 w-full bg-white"
+        className="absolute inset-0 right-0 w-full bg-background"
       />
 
       <motion.ul
@@ -69,7 +69,7 @@ function NavMobile() {
                 {item}
               </Link>
             </MenuItem>
-            <MenuItem className="my-3 h-px w-full bg-gray-300" />
+            <MenuItem className="my-3 h-px w-full bg-muted" />
           </div>
         ))}
       </motion.ul>
@@ -115,7 +115,7 @@ const MenuItem = ({
 const MenuToggle = ({ toggle }: { toggle: any }) => (
   <button
     onClick={toggle}
-    className="pointer-events-auto absolute right-5 top-5 z-20"
+    className="pointer-events-auto absolute right-5 top-5 z-20 text-foreground"
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
@@ -144,10 +144,9 @@ const MenuToggle = ({ toggle }: { toggle: any }) => (
 
 const Path = (props: any) => (
   <motion.path
-    fill="transparent"
     strokeWidth="2"
-    stroke="hsl(0, 0%, 18%)"
     strokeLinecap="round"
+    className={'stroke-current'}
     {...props}
   />
 )

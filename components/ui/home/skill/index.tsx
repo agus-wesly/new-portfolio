@@ -19,29 +19,29 @@ const SKILL_LIST = [
   },
   {
     icon: Remix,
-    title: 'Next.js 13',
+    title: 'Remix.run',
     info: 'App dir, Routing, Layouts, Loading UI and API routes.',
   },
   {
     icon: Tailwind,
-    title: 'Next.js 13',
+    title: 'Tailwind.css',
     info: 'App dir, Routing, Layouts, Loading UI and API routes.',
   },
   {
     icon: Vue,
-    title: 'Next.js 13',
+    title: 'Vue.js',
     info: 'App dir, Routing, Layouts, Loading UI and API routes.',
   },
   {
     icon: Nuxt,
-    title: 'Next.js 13',
+    title: 'Nuxt.js',
     info: 'App dir, Routing, Layouts, Loading UI and API routes.',
   },
 ]
 
 function Skill() {
   return (
-    <div className="border-y border-border bg-background/10 py-8 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur text-center">
+    <div className="border-y border-border bg-background/10 py-8 backdrop-blur text-center shadow-[inset_10px_-50px_94px_0_foreground]">
       <h1 className="font-display text-4xl font-extrabold leading-[1.15] text-foreground sm:text-6xl sm:leading-[1.15]">
         Skill
       </h1>

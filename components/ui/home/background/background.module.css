@@ -9,7 +9,11 @@
   pointer-events: none;
 }
 .main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 0) 0,
+    var(--background) 100%
+  );
   position: absolute;
   content: '';
   z-index: 2;
@@ -25,8 +29,8 @@
   width: 100%;
   height: 100%;
   top: 0;
-  opacity: 0.6;
-  filter: invert(1);
+  opacity: var(--opacity);
+  filter: var(--filter);
 }
 
 .content {
