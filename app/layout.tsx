@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn(satoshi.variable, inter.variable)}>
-        <Provider attribute="class" defaultTheme="system">
+        <Provider defaultTheme="dark" attribute="class">
           {children}
         </Provider>
       </body>

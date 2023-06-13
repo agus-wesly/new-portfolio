@@ -22,6 +22,8 @@ export default function ToggleTheme() {
 
   if (!mounted) return null
 
+  console.log({ theme })
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>

@@ -10,32 +10,32 @@ const SKILL_LIST = [
   {
     icon: ReactIcon,
     title: 'React.js',
-    info: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    info: 'Experienced in building responsive web interfaces with React.',
   },
   {
     icon: Next,
     title: 'Next.js 13',
-    info: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    info: "Proficient in building modern web using Next.js's app directory feature.",
   },
   {
     icon: Remix,
     title: 'Remix.run',
-    info: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    info: 'Already familiar with remix including the concept of loader and action',
   },
   {
     icon: Tailwind,
     title: 'Tailwind.css',
-    info: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    info: 'Using Tailwind.css, leveraging its utility-first approach to build modern web app .',
   },
   {
     icon: Vue,
     title: 'Vue.js',
-    info: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    info: 'Experienced in building responsive web interfaces with Vue.js.',
   },
   {
     icon: Nuxt,
     title: 'Nuxt.js',
-    info: 'App dir, Routing, Layouts, Loading UI and API routes.',
+    info: 'Skilled in developing server-side rendered and static websites using Nuxt.js.',
   },
 ]
 

@@ -5,7 +5,7 @@ import { motion, useCycle } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import Link from 'next/link'
 
-const navItems = ['home', 'about', 'skill']
+const navItems = ['home', 'blog', 'project']
 
 const sidebar: Variants = {
   open: (height = 1000) => ({
