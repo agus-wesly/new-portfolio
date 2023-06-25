@@ -10,11 +10,11 @@ import Logo from '@/components/shared/logo'
 const navItems = ['home', 'blog', 'project']
 
 function Nav() {
-  const scrolled = useScroll(80)
+  const scrolled = useScroll(10)
   const active = false
   return (
     <nav
-      className={cn('sticky inset-x-0 top-0 z-30 w-full transition-all', {
+      className={cn('sticky inset-x-0 top-0 z-30 w-full transition-all py-2', {
         'border-b border-border bg-background/75 backdrop-blur-lg': scrolled,
       })}
     >
@@ -23,10 +23,10 @@ function Nav() {
           <Logo />
         </Link>
         <div className="hidden sm:flex items-center gap-6">
-          {navItems.map((item) => (
+          {navItems.map((item, i) => (
             <Link
               key={item}
-              href={'#'}
+              href={i === 0 ? '/' : `/${item}`}
               className={`rounded-md text-sm font-medium capitalize ${
                 active ? 'text-black' : 'text-muted-foreground'
               } transition-colors ease-out hover:text-foreground`}

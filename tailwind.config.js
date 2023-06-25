@@ -55,7 +55,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['var(--font-satoshi)', 'system-ui', 'sans-serif'],
-        default: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        default: ['var(--font-inter)', ...fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {

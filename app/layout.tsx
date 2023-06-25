@@ -1,7 +1,13 @@
 import '@/styles/globals.css'
-import { satoshi, inter } from '@/styles/fonts'
+import { satoshi } from '@/styles/fonts'
+import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Provider from '@/components/Provider'
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+})
 
 export const metadata = {
   title: 'Agus Wesly',
@@ -15,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(satoshi.variable, inter.variable)}>
+      <body className={cn('antialiased', satoshi.variable, inter.variable)}>
         <Provider defaultTheme="dark" attribute="class">
           {children}
         </Provider>
