@@ -27,8 +27,12 @@ async function getPostFromParams(params: { slug: string[] }) {
   return post
 }
 
-export async function generateMetaData(params: {
-  slug: string[]
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    slug: string[]
+  }
 }): Promise<Metadata> {
   const blog = await getPostFromParams(params)
   if (!blog) return {}
