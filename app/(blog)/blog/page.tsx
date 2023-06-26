@@ -5,6 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { formatDate } from '@/lib/utils'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog | Agus Wesly',
+}
 
 export default function BlogPage({}: {}) {
   const blogs = allBlogs

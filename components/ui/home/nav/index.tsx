@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import Logo from '@/components/shared/logo'
 
-const navItems = ['home', 'blog', 'project']
+const navItems = ['home', 'about', 'blog']
 
 function Nav() {
   const scrolled = useScroll(10)
@@ -34,12 +34,6 @@ function Nav() {
               {item}
             </Link>
           ))}
-          <Link
-            href={'#'}
-            className="rounded-full border border-foreground bg-foreground px-4 py-1.5 text-sm text-background transition-all hover:bg-background hover:text-foreground"
-          >
-            Contact
-          </Link>
         </div>
       </div>
     </nav>

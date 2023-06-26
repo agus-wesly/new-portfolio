@@ -1,5 +1,6 @@
 import React from 'react'
 import Github from '@/components/shared/github'
+import Link from 'next/link'
 
 function Hero() {
   return (
@@ -19,9 +20,12 @@ function Hero() {
       </p>
 
       <div className="flex justify-center gap-5 mt-10">
-        <button className="rounded-full border border-background bg-foreground px-4 sm:px-5 sm:py-2 text-sm text-background shadow-lg transition-all hover:bg-background hover:text-foreground">
-          Download CV
-        </button>
+        <Link
+          href="/blog"
+          className="rounded-full border border-background bg-foreground px-4 sm:px-5 sm:py-2 text-sm text-background shadow-lg transition-all hover:bg-background hover:text-foreground"
+        >
+          Read my blog
+        </Link>
 
         <button className="flex items-center justify-center space-x-1 sm:space-x-2 rounded-full border border-border bg-background px-5 py-2 shadow-lg transition-all hover:border-foreground">
           <Github className="w-5 h-5 text-foreground" />
