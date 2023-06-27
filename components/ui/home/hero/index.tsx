@@ -22,7 +22,7 @@ function Hero() {
       <div className="flex justify-center gap-5 mt-10">
         <Link
           href="/blog"
-          className="rounded-full border border-background bg-foreground px-4 sm:px-5 sm:py-2 text-sm text-background shadow-lg transition-all hover:bg-background hover:text-foreground"
+          className="rounded-full flex items-center justify-center border border-background bg-foreground px-4 sm:px-5 sm:py-2 text-sm text-background shadow-lg transition-all hover:bg-background hover:text-foreground"
         >
           Read my blog
         </Link>

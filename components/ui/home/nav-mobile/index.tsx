@@ -5,7 +5,7 @@ import { motion, useCycle } from 'framer-motion'
 import type { Variants } from 'framer-motion'
 import Link from 'next/link'
 
-const navItems = ['home', 'about', 'blog']
+const navItems = ['home', 'player', 'blog']
 
 const sidebar: Variants = {
   open: (height = 1000) => ({
@@ -62,7 +62,7 @@ function NavMobile() {
           <div key={item} className="grid gap-3">
             <MenuItem>
               <Link
-                href={'/'}
+                href={`/${item}`}
                 onClick={() => toggleOpen()}
                 className="flex w-full font-semibold capitalize"
               >

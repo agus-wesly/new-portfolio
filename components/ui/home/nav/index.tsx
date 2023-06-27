@@ -7,10 +7,10 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import Logo from '@/components/shared/logo'
 
-const navItems = ['home', 'about', 'blog']
+const navItems = ['home', 'player', 'blog']
 
 function Nav() {
-  const scrolled = useScroll(10)
+  const scrolled = useScroll(20)
   const active = false
   return (
     <nav
