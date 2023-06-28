@@ -27,9 +27,9 @@ function Nav() {
             <Link
               key={item}
               href={i === 0 ? '/' : `/${item}`}
-              className={`rounded-md text-sm font-medium capitalize ${
-                active ? 'text-black' : 'text-muted-foreground'
-              } transition-colors ease-out hover:text-foreground`}
+              className={`text-sm font-bold capitalize ${
+                active ? 'text-black' : ''
+              } transition-colors ease-out hover:text-foreground bg-background/80 rounded-full px-6 py-2 hover:scale-105`}
             >
               {item}
             </Link>

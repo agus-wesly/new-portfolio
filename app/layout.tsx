@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Provider from '@/components/Provider'
 import { Metadata } from 'next'
+import MusicPlayer from '@/components/music-player'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -34,6 +35,8 @@ export default function RootLayout({
       <body className={cn('antialiased', satoshi.variable, inter.variable)}>
         <Provider defaultTheme="dark" attribute="class">
           {children}
+
+          <MusicPlayer />
         </Provider>
       </body>
     </html>
