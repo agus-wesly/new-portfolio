@@ -15,6 +15,7 @@
     "@types/node": "20.1.7",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
+    "@uploadthing/react": "^5.1.0",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
@@ -29,6 +30,7 @@
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.9.11",
     "rehype-slug": "^5.1.0",
@@ -38,6 +40,8 @@
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
     "unist-util-visit": "^4.1.2",
+    "uploadthing": "^5.1.0",
+    "use-sound": "^4.0.1",
     "zod": "^3.21.4",
     "zustand": "^4.3.8"
   }

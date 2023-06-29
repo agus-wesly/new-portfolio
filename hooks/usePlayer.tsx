@@ -1,21 +1,17 @@
 import { create } from 'zustand'
-
-type Song = {
-  name: string
-  url: string
-  duration: number
-}
+import type { Song } from '@/data'
+import { allSong } from '@/data'
 
 interface PlayerState {
   songs: Song[]
-  activeSongIndex: number
-  isPlaying: boolean
-  setPlay: (idx: number) => void
+  activeSongIndex?: number
+  setPlay: (idx: number | undefined) => void
 }
 
 const usePlayer = create<PlayerState>()((set) => ({
-  songs: [],
-  activeSongIndex: 0,
-  isPlaying: false,
+  songs: allSong,
+  activeSongIndex: undefined,
   setPlay: (id) => set(() => ({ activeSongIndex: id })),
 }))
+
+export default usePlayer
