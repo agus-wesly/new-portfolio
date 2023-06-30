@@ -77,12 +77,16 @@ function Player() {
         </div>
 
         <div>
-          <p className="text-sm font-semibold">{activeSong.title}</p>
-          <p className="text-xs text-muted-foreground">{activeSong.artist}</p>
+          <p className="text-sm font-semibold truncate max-w-[7ch] sm:max-w-none">
+            {activeSong.title}
+          </p>
+          <p className="text-xs text-muted-foreground truncate max-w-[7ch] sm:max-w-none">
+            {activeSong.artist}
+          </p>
         </div>
       </div>
 
-      <div className="flex gap-4 mr-4 items-start">
+      <div className="flex gap-3 md:gap-4 mr-4 items-start">
         <button onClick={() => setPrevActive()}>
           <Backward />
         </button>
@@ -107,7 +111,7 @@ function Player() {
         <button onClick={handleVolumeClick}>
           {muted ? <SpeakerMuted /> : <Speaker />}
         </button>
-        <div className="w-20 h-2">
+        <div className="w-20 h-2 hidden md:block">
           <Slider
             defaultValue={[volume * 100]}
             max={100}

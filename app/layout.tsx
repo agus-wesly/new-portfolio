@@ -32,7 +32,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('antialiased', satoshi.variable, inter.variable)}>
+      <body
+        className={cn(
+          'antialiased max-w-screen overflow-x-hidden',
+          satoshi.variable,
+          inter.variable
+        )}
+      >
         <Provider defaultTheme="dark" attribute="class">
           {children}
 
