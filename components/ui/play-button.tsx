@@ -3,13 +3,15 @@
 import { cn } from '@/lib/utils'
 import Play from '../shared/play'
 import { Button } from './button'
+import React from 'react'
 
 type Props = {
   className?: string
   onClick: () => void
+  children: React.ReactNode
 }
 
-export default function PlayButton({ className, onClick }: Props) {
+export default function PlayButton({ className, onClick, children }: Props) {
   return (
     <Button
       onClick={onClick}
@@ -18,7 +20,7 @@ export default function PlayButton({ className, onClick }: Props) {
         className
       )}
     >
-      <Play />
+      {children}
     </Button>
   )
 }

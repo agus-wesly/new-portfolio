@@ -6,7 +6,6 @@ import { Forward, Backward } from './shared/control'
 import Play from './shared/play'
 import Pause from './shared/pause'
 import Image from 'next/image'
-import Volume from './volume'
 import Loading from './shared/loading'
 import { Slider } from './ui/slider'
 import usePlayer from '@/hooks/usePlayer'
@@ -26,7 +25,7 @@ function Player() {
     },
     volume,
     onend: () => {
-      setIsPlaying(false)
+      setNextActive()
     },
     onpause: () => setIsPlaying(false),
     format: ['mp3'],
@@ -49,26 +48,37 @@ function Player() {
       play()
     }
   }
+
+  const muted = !volume
+
+  function handleVolumeClick() {
+    if (muted) {
+      setVolume(0.6)
+    } else {
+      setVolume(0.0)
+    }
+  }
+
   return (
-    <div className="fixed bottom-0 h-16 left-0 w-full bg-slate-900 flex justify-between items-center font-display md:px-6 z-5">
+    <div className="sticky bottom-0 h-16 left-0 w-full bg-card flex justify-between items-center font-display md:px-6 z-5 bg-gray-200 dark:bg-gray-900">
       {isLoading ? (
-        <div className="absolute inset-0 w-full h-full bg-black/80 z-[99] flex items-center justify-center">
+        <div className="absolute inset-0 w-full h-full bg-background/70 z-[99] flex items-center justify-center">
           <Loading className="animate-spin" />
         </div>
       ) : null}
       <div className="flex gap-4 items-center h-full">
         <div className="relative flex-none aspect-square h-full ">
           <Image
-            src={'/song/song-1.jpeg'}
-            alt="song-1"
+            src={activeSong.imageUrl}
+            alt={`${activeSong.title}-img`}
             fill
             className="object-cover inset-0"
           />
         </div>
 
         <div>
-          <p className="text-sm font-semibold">Ready to be</p>
-          <p className="text-xs text-muted-foreground">Twice</p>
+          <p className="text-sm font-semibold">{activeSong.title}</p>
+          <p className="text-xs text-muted-foreground">{activeSong.artist}</p>
         </div>
       </div>
 
@@ -77,8 +87,15 @@ function Player() {
           <Backward />
         </button>
 
-        <button onClick={() => handlePlayPause()}>
-          {isPlaying ? <Pause /> : <Play />}
+        <button
+          className="rounded-full bg-foreground w-8 h-8 flex items-center justify-center"
+          onClick={() => handlePlayPause()}
+        >
+          {isPlaying ? (
+            <Pause className="fill-background w-4 h-4" />
+          ) : (
+            <Play className="fill-background w-4 h-4 md:w-5 md:h-5" />
+          )}
         </button>
 
         <button onClick={() => setNextActive()}>
@@ -87,8 +104,10 @@ function Player() {
       </div>
 
       <div className="flex gap-4 mr-4 items-center">
-        <Volume />
-        <div className="w-20 h-3">
+        <button onClick={handleVolumeClick}>
+          {muted ? <SpeakerMuted /> : <Speaker />}
+        </button>
+        <div className="w-20 h-2">
           <Slider
             defaultValue={[volume * 100]}
             max={100}
@@ -108,7 +127,6 @@ export default function MusicPlayer() {
   if (activeSongIndex === undefined) {
     return null
   }
-  console.log(activeSongIndex)
 
   return <Player key={activeSongIndex} />
 }

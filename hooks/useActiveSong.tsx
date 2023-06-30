@@ -21,7 +21,6 @@ export default function useActiveSong() {
   }
 
   function setNextActive() {
-    console.log('next')
     setPlay((activeSongIndex! + 1) % songs.length)
   }
 

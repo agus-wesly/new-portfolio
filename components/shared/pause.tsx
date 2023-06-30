@@ -1,18 +1,17 @@
-export default function Pause() {
+import { cn } from '@/lib/utils'
+
+export default function Pause({ className }: { className?: string }) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-6 h-6"
+      role="img"
+      height="16"
+      width="16"
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      data-encore-id="icon"
+      className={cn('w-5 h-5 flex-none fill-current', className)}
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 5.25v13.5m-7.5-13.5v13.5"
-      />
+      <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path>
     </svg>
   )
 }

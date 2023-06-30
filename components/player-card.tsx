@@ -5,10 +5,12 @@ import React from 'react'
 import Play from './shared/play'
 import type { Song } from '@/data'
 import { cn } from '@/lib/utils'
+import Pause from './shared/pause'
 
 type Props = Song & {
   isActive?: boolean
   idx: number
+  onClick: () => void
 }
 
 export default function PlayerCard({
@@ -17,9 +19,12 @@ export default function PlayerCard({
   artist,
   isActive,
   idx,
+  duration,
+  onClick,
 }: Props) {
   return (
     <div
+      onClick={onClick}
       className={cn(
         'flex items-center justify-between p-2 lg:px-4 hover:bg-muted/80 cursor-pointer',
         {
@@ -32,7 +37,7 @@ export default function PlayerCard({
           isActive ? 'text-green-600' : ''
         }`}
       >
-        {idx}.
+        <span className="w-[2ch]">{idx}.</span>
         <div className="relative w-14 h-14 md:w-11 md:h-11">
           <Image src={imageUrl} alt="song-1" fill className="object-cover" />
         </div>
@@ -53,10 +58,10 @@ export default function PlayerCard({
         5 days ago
       </p>
       <div className="text-sm font-semibold text-muted-foreground hidden md:flex items-end">
-        03:28
+        {duration}
       </div>
       <button className="block md:hidden">
-        <Play />
+        {isActive ? <Pause /> : <Play />}
       </button>
     </div>
   )

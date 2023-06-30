@@ -1,10 +1,12 @@
-export default function Play() {
+import { cn } from '@/lib/utils'
+
+export default function Play({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="w-6 h-6 md:w-7 md:h-7 shrink-0"
+      className={cn('w-6 h-6 md:w-7 md:h-7 shrink-0', className)}
     >
       <path
         fillRule="evenodd"
