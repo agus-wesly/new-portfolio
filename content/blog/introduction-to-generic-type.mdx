@@ -1,0 +1,91 @@
+xx---
+title: Pengenalan tipe generic pada Typescript
+description: Postingan kali ini akan membahas mengenai tipe generic pada typescript. Meliputi definisi, contoh dan mengapa kita memerlukannya.
+image: /blog/blog-3.png
+date: '2023-08-01'
+authors:
+  - Agus Wesly
+---
+
+Generic merupakan salah satu fitur pada typescript. Generic memungkinkan developer melakukan abstraksi terhadap tipe data dalam typescript. Tipe data generic ditandai dengan penggunaan **Angle Bracket** `(<>)` sebagai pembungkus dari suatu **type**.
+
+```ts
+type Generic<T> = T
+```
+
+## Pengenalan
+
+Konsep Don't Repeat Yourself (**Dry**) merupakan konsep yang penting dalam konteks penulisan kode yang dinamis dan _reusable_.
+
+Dengan generic kita dapat membuat kode yang _reusable_ pada function, class, atupun interface.
+
+Tanpa disadari, kita mungkin sudah pernah mengimplementasikan generic pada kehidupan sehari-hari. Sebagai contoh mari lihat potongan kode berikut :
+
+```ts
+const [counter, setCounter] = useState<number>(0)
+```
+
+Kode diatas menginisialisasi state `counter` dan setter `setCounter` menggunakan `useState` hook. Dengan memberikan tipe data `number` secara eksplisit lewat _generic_.
+
+Kebanyakan hook pada react secara default sudah menerapkan generic. Sehingga kita dapat mengetahui secara pasti tipe data `variable` dari hook-hook tersebut.
+
+## Memahami Generic
+
+Terkadang kita ingin membuat sebuah function yang menerima parameter dengan tipe data yang berbeda, akan tetapi memiliki logic yang sama. Seperti contoh berikut :
+
+```ts
+// Tipe parameter number
+function foo(param: number): number {
+  // ...
+  return param
+}
+
+// Tipe parameter string
+function foo(param: string): string {
+  // ...
+  return param
+}
+```
+
+Dalam kode diatas, kita mendefinisikan `function` yang sama untuk tipe data `number` dan tipe data `string`. Akan lebih baik jika kita mengabstraksi tipe data yang diterima dari function sehingga kita tidak perlu mengulang kode yang sama secara terus menerus. Dengan generic kita bisa melakukannya !.
+
+## Membuat Tipe Generic
+
+Untuk lebih memahami konsep dari generic, pertama mari kita ubah setiap tipe data function diatas menjadi `any`. Tipe `any` dalam typescript memungkinkan kita untuk melakukan assign terhadap semua type yang ada pada typescript.
+
+```ts
+function foo(param: any): any {
+  // ...
+  return param
+}
+```
+
+Bagus, sekarang kita dapat melakukan assign terhadap semua tipe data. Namum apakah ada cara agar typescript dapat melakukan **infer** terhadap tipe data yang kita sediakan pada paramter ? Sehingga, tipe data apapun yang ada pada parameter akan digunakan juga sebagai `Return Type` dari function tersebut. Disinilah fitur **generic** akan kita terapkan.
+
+```ts
+function foo<T>(param: T): T {
+  // ...
+  return param
+}
+```
+
+Pada kode diatas kita membuat function `foo` menjadi generic ditandai dengan penggunaan `<T>`, dimana type `T` adalah tipe data generic. Artinya, typescript akan melakukan `infer` saat runtime terhadap tipe `param` yang kita spesifikasikan. Jika param memiliki tipe data `number`, maka `T` akan menjadi `number`. Sebaliknya, jika param memiliki tipe data `string`, maka `T` juga akan menjadi `string`. Terakhir, kita memberikan tipe data yang akan di return oleh function tersebut menjadi `T`. Artinya `Return type` dari function `foo` akan memiliki tipe data yang sama dengan parameter dari function tersebut.
+
+```ts
+function foo<T>(param: T): T {
+  // ...
+  return param
+}
+
+const a = foo(2)
+a //number
+
+const b = foo('2')
+a //string
+```
+
+## Penutup
+
+_That's it !_ Sekarang kita punya function `foo` yang memiliki `Return type` yang sesuai dengan tipe parameternya tanpa harus melakukan duplikasi kode.
+
+Ada banyak sekali yang bisa kita lakukan terhadap _generic_, seperti melakukan `Conditional Type`, `Mapped Type`, dll. Sayangnya kita tidak akan membahasnya pada artikel kali ini (mungkin di artikel selanjutnya). Terimakasih karena sudah membaca sampai akhir. Akhir kata saya ucapkan **Terima kasih :)**.
