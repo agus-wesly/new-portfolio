@@ -1,12 +1,12 @@
 import '@/styles/globals.css'
 import { satoshi } from '@/styles/fonts'
-import { Inter } from 'next/font/google'
+import { Inter as FontSans } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Provider from '@/components/Provider'
 import { Metadata } from 'next'
 import MusicPlayer from '@/components/music-player'
 
-const inter = Inter({
+const inter = FontSans({
   variable: '--font-inter',
   subsets: ['latin'],
 })
@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'antialiased max-w-screen overflow-x-hidden',
+          'antialiased max-w-screen font-inter overflow-x-hidden',
           satoshi.variable,
           inter.variable
         )}

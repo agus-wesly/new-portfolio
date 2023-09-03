@@ -29,7 +29,7 @@ Kode diatas menginisialisasi state `counter` dan setter `setCounter` menggunakan
 
 Kebanyakan hook pada react secara default sudah menerapkan generic. Sehingga kita dapat mengetahui secara pasti tipe data `variable` dari hook-hook tersebut.
 
-## Memahami Generic
+## Contoh kasus
 
 Terkadang kita ingin membuat sebuah function yang menerima parameter dengan tipe data yang berbeda, akan tetapi memiliki logic yang sama. Seperti contoh berikut :
 
@@ -69,7 +69,36 @@ function foo<T>(param: T): T {
 }
 ```
 
-Pada kode diatas kita membuat function `foo` menjadi generic ditandai dengan penggunaan `<T>`, dimana type `T` adalah tipe data generic. Artinya, typescript akan melakukan `infer` saat runtime terhadap tipe `param` yang kita spesifikasikan. Jika param memiliki tipe data `number`, maka `T` akan menjadi `number`. Sebaliknya, jika param memiliki tipe data `string`, maka `T` juga akan menjadi `string`. Terakhir, kita memberikan tipe data yang akan di return oleh function tersebut menjadi `T`. Artinya `Return type` dari function `foo` akan memiliki tipe data yang sama dengan parameter dari function tersebut.
+Pada kode diatas kita membuat function `foo` menjadi generic ditandai dengan penggunaan `<T>`, dimana type `T` adalah tipe data generic. Artinya, type `T` akan tergantung dari type yang kita spesifikasikan. Seperti contoh berikut :
+
+```ts
+function foo<T>(param: T): T {
+  // ...
+  return param
+}
+
+const a = foo<number>(2)
+a //number
+
+const b = foo<string>('2')
+b //string
+```
+
+Tentu saja jika generic yang kita spesifikasikan tidak sesuai dengan tipe dari `param`, maka typescript akan memberikan error.
+
+```ts
+const a = foo<number>('2') // Error karena number is not assignable dengan string
+
+const b = foo<string>(2) // Error karena string is not assignable dengan number
+```
+
+Pada function yang pertama, kita memberikan type `number` sebagai generic dari function `foo`. Sehingga tipe dari param dan tipe data yang di return oleh function akan menjadi number. Sebaliknya pada function kedua kita memberi type `string`, sehingga tipe param dan `Return type` function menjadi string.
+
+Kamu bisa menganggap generic seperti function biasa, dapat menerima argumen (dalam hal diatas `type argument`) dan menggunakan argumen tersebut didalamnya. Hanya saja argumen pada generic secara khusus hanya menerima `type` saja.
+
+Oke, sekarang kita punya function `foo` yang memiliki `Return type` sesuai dengan tipe yang kita spesifikasi tanpa harus melakukan duplikasi kode. Masalah kita sudah terselesaikan. Tetapi saya ingin menunjukkan satu hal yang menarik !
+
+Mari coba hilangkan `Type argument` saat kita memanggil function `foo` dan lihat apa yang terjadi.
 
 ```ts
 function foo<T>(param: T): T {
@@ -78,14 +107,26 @@ function foo<T>(param: T): T {
 }
 
 const a = foo(2)
-a //number
+a // tipe data a menjadi 2
 
 const b = foo('2')
-a //string
+b //tipe data b menjadi '2'
 ```
+
+Tipe data dari variabel `a` dan `b` menjadi sama dengan argumen dari function `foo` 😮😮. Wow apa yang terjadi ?
+
+<Image
+  src="/blog/siapa-sangka.webp"
+  width={180}
+  height={180}
+  className="w-[180px] mx-auto object-cover aspect-square"
+  alt="siapa-sangka"
+/>
+
+Jadi ketika generic digunakan didalam function dan kita tidak memberikan type terhadap generic tersebut, maka typescript akan berusaha melakukan `infering` kepada generic pada saat **runtime**. Pada kasus diatas, `param` memiliki type `T`, jadi typescript akan menyimpulkan bahwa type yang dimiliki oleh `param` adalah sama dengan type yang dimiliki oleh `T`. Begitupula dengan `Return type` dari function tersebut. Sehingga tipe yang kita berikan pada setiap instansiasi function menjadi dinamis dan berbeda-beda sesuai dengan parameter yang kita berikan.
+
+Satu hal lagi, pada contoh diatas kita menggunakan `const` pada saat mendefinisikan variabel `a` dan `b`. Karena nilai pada `const ` adalah `constant`, maka typescript akan cukup cerdas saat melakukan `infering`. Sehingga tipe data yang didapatkan bukanlah `number` atau `string`, melainkan `2` atau `'2'`. Sebaliknya, jika kita menggunakan `let`, maka tipe yang kita dapatkan adalah `string` atau `number`, karena variabel tersebut mungkin saja berubah.
 
 ## Penutup
 
-_That's it !_ Sekarang kita punya function `foo` yang memiliki `Return type` yang sesuai dengan tipe parameternya tanpa harus melakukan duplikasi kode.
-
-Ada banyak sekali yang bisa kita lakukan terhadap _generic_, seperti melakukan `Conditional Type`, `Mapped Type`, dll. Sayangnya kita tidak akan membahasnya pada artikel kali ini (mungkin di artikel selanjutnya). Terimakasih karena sudah membaca sampai akhir. Akhir kata saya ucapkan **Terima kasih :)**.
+_That's it !_ Ada banyak sekali hal lain yang bisa kita lakukan terhadap _generic_, seperti melakukan `Conditional Type`, `Mapped Type`, dll. Sayangnya kita tidak akan membahasnya pada artikel kali ini (mungkin di artikel selanjutnya). Terimakasih karena sudah membaca sampai akhir. Akhir kata saya ucapkan **Terima kasih :)**.

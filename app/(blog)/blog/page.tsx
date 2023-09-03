@@ -30,7 +30,7 @@ export default function BlogPage({}: {}) {
                 alt={blog.title}
                 width={804}
                 height={452}
-                className="rounded-md border bg-muted transition-colors"
+                className="aspect-[14/9] rounded-md border bg-muted transition-colors"
               />
               <h1 className="text-2xl font-extrabold font-display">
                 {blog.title}
