@@ -9,7 +9,7 @@ export default function BlogLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="font-default">
+    <div className="font-default flex flex-col min-h-screen">
       <Nav />
       <NavMobile />
       {children}

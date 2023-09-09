@@ -1,6 +1,12 @@
-import React from 'react'
-import Github from '@/components/shared/github'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+const Modal = dynamic(() => import('./modal'), {
+  loading: () => (
+    <button className="animate-pulse rounded-full bg-muted border-2 w-[128px] h-[38px]" />
+  ),
+  ssr: false,
+})
 
 function Hero() {
   return (
@@ -27,14 +33,7 @@ function Hero() {
           Read my blog
         </Link>
 
-        <a
-          href="https://github.com/agustforbussines"
-          target="_blank"
-          className="flex items-center justify-center space-x-1 sm:space-x-2 rounded-full border border-border bg-background px-5 py-2 shadow-lg transition-all hover:border-foreground"
-        >
-          <Github className="w-5 h-5 text-foreground" />
-          <span>View github</span>
-        </a>
+        <Modal />
       </div>
     </div>
   )

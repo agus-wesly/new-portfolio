@@ -18,7 +18,7 @@ export default function BlogPage({}: {}) {
       return compareDesc(new Date(a.date), new Date(b.date))
     })
   return (
-    <div className="container max-w-5xl mx-auto py-10">
+    <div className="container max-w-5xl mx-auto py-10 flex-1 h-full">
       <h1 className="text-5xl font-bold font-display mb-10">Blog Post</h1>
       <hr className="mb-8" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
