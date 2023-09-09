@@ -47,7 +47,7 @@ function foo(param: string): string {
 }
 ```
 
-Dalam kode diatas, kita mendefinisikan `function` yang sama untuk tipe data `number` dan tipe data `string`. Akan lebih baik jika kita mengabstraksi tipe data yang diterima dari function sehingga kita tidak perlu mengulang kode yang sama secara terus menerus. Dengan generic kita bisa melakukannya !.
+Dalam kode diatas, kita mendefinisikan `function` yang sama untuk tipe data `number` dan tipe data `string`. Akan lebih baik jika kita mengabstraksi tipe data yang diterima dari function sehingga kita tidak perlu mengulang kode yang sama secara terus menerus. Dengan generic kita bisa melakukannya !
 
 ## Membuat Tipe Generic
 
@@ -60,7 +60,7 @@ function foo(param: any): any {
 }
 ```
 
-Bagus, sekarang kita dapat melakukan assign terhadap semua tipe data. Namum apakah ada cara agar typescript dapat melakukan **infer** terhadap tipe data yang kita sediakan pada paramter ? Sehingga, tipe data apapun yang ada pada parameter akan digunakan juga sebagai `Return Type` dari function tersebut. Disinilah fitur **generic** akan kita terapkan.
+Bagus, sekarang kita dapat melakukan assign terhadap semua tipe data. Namun apakah ada cara agar typescript dapat melakukan **infer** terhadap tipe data yang kita sediakan pada parameter ? Sehingga, tipe data apapun yang ada pada parameter akan digunakan juga sebagai `Return Type` dari function tersebut. Disinilah fitur **generic** akan kita terapkan.
 
 ```ts
 function foo<T>(param: T): T {
