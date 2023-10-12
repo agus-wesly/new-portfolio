@@ -15,13 +15,13 @@ function Hero() {
         Hi, I'm Wesly
         <br />
         <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-          Front end developer
+          Front-end Developer
         </span>
       </h1>
 
       <p className="text-foreground font-display mt-5 sm:text-base lg:text-xl font-medium">
-        I'm interested with the modern web development. I build app using on
-        demand technologies such as React.js, Next.js and Tailwind.css. Feel
+        I'm interested in modern web development. I build app using on-demand
+        technologies such as React, Next.js, and Tailwind CSS. Feel
         free to contact me :)
       </p>
 

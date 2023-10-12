@@ -1,13 +1,13 @@
 ---
-title: Pengenalan tipe generic pada Typescript
-description: Postingan kali ini akan membahas mengenai tipe generic pada typescript. Meliputi definisi, contoh dan mengapa kita memerlukannya.
+title: Pengenalan Tipe Data Generic Pada TypeScript
+description: Postingan kali ini akan membahas mengenai tipe data generic pada TypeScript. Meliputi definisi, contoh, dan mengapa kita memerlukannya.
 image: /blog/blog-3.png
 date: '2023-08-01'
 authors:
   - Agus Wesly
 ---
 
-Generic merupakan salah satu fitur pada typescript. Generic memungkinkan developer melakukan abstraksi terhadap tipe data dalam typescript. Tipe data generic ditandai dengan penggunaan **Angle Bracket** `(<>)` sebagai pembungkus dari suatu **type**.
+Generic merupakan salah satu fitur pada TypeScript. Generic memungkinkan developer melakukan abstraksi terhadap tipe data dalam TypeScript. Tipe data generic ditandai dengan penggunaan **angle bracket** `(<>)` sebagai pembungkus dari suatu **type**.
 
 ```ts
 type Generic<T> = T
@@ -15,23 +15,23 @@ type Generic<T> = T
 
 ## Pengenalan
 
-Konsep Don't Repeat Yourself (**Dry**) merupakan konsep yang penting dalam konteks penulisan kode yang dinamis dan _reusable_.
+Konsep Don't Repeat Yourself (**DRY**) merupakan konsep yang penting dalam konteks penulisan kode yang dinamis dan reusable.
 
-Dengan generic kita dapat membuat kode yang _reusable_ pada function, class, atupun interface.
+Dengan generic, kita dapat membuat kode yang reusable pada function, class, atau pun interface.
 
-Tanpa disadari, kita mungkin sudah pernah mengimplementasikan generic pada kehidupan sehari-hari. Sebagai contoh mari lihat potongan kode berikut :
+Tanpa disadari, kita mungkin sudah pernah mengimplementasikan generic pada kehidupan sehari-hari. Sebagai contoh mari lihat potongan kode berikut:
 
 ```ts
 const [counter, setCounter] = useState<number>(0)
 ```
 
-Kode diatas menginisialisasi state `counter` dan setter `setCounter` menggunakan `useState` hook. Dengan memberikan tipe data `number` secara eksplisit lewat _generic_.
+Kode di atas menginisialisasi state `counter` dan setter `setCounter` menggunakan `useState` hook. Dengan memberikan tipe data `number` secara eksplisit lewat generic.
 
-Kebanyakan hook pada react secara default sudah menerapkan generic. Sehingga kita dapat mengetahui secara pasti tipe data `variable` dari hook-hook tersebut.
+Kebanyakan hook pada React secara default sudah menerapkan generic. Sehingga kita dapat mengetahui secara pasti tipe data `variable` dari hook-hook tersebut.
 
-## Contoh kasus
+## Contoh Kasus
 
-Terkadang kita ingin membuat sebuah function yang menerima parameter dengan tipe data yang berbeda, akan tetapi memiliki logic yang sama. Seperti contoh berikut :
+Terkadang kita ingin membuat sebuah function yang menerima parameter dengan tipe data yang berbeda, akan tetapi memiliki logic yang sama. Seperti contoh berikut:
 
 ```ts
 // Tipe parameter number
@@ -47,11 +47,11 @@ function foo(param: string): string {
 }
 ```
 
-Dalam kode diatas, kita mendefinisikan `function` yang sama untuk tipe data `number` dan tipe data `string`. Akan lebih baik jika kita mengabstraksi tipe data yang diterima dari function sehingga kita tidak perlu mengulang kode yang sama secara terus menerus. Dengan generic kita bisa melakukannya !
+Dalam kode di atas, kita mendefinisikan `function` yang sama untuk tipe data `number` dan tipe data `string`. Akan lebih baik jika kita mengabstraksi tipe data yang diterima dari function sehingga kita tidak perlu mengulang kode yang sama secara terus menerus. Dengan generic, kita bisa melakukannya!
 
 ## Membuat Tipe Generic
 
-Untuk lebih memahami konsep dari generic, pertama mari kita ubah setiap tipe data function diatas menjadi `any`. Tipe `any` dalam typescript memungkinkan kita untuk melakukan assign terhadap semua type yang ada pada typescript.
+Untuk lebih memahami konsep dari generic, pertama mari kita ubah setiap tipe data function di atas menjadi `any`. Tipe `any` dalam TypeScript memungkinkan kita untuk melakukan assign terhadap semua type yang ada pada TypeScript.
 
 ```ts
 function foo(param: any): any {
@@ -60,7 +60,7 @@ function foo(param: any): any {
 }
 ```
 
-Bagus, sekarang kita dapat melakukan assign terhadap semua tipe data. Namun apakah ada cara agar typescript dapat melakukan **infer** terhadap tipe data yang kita sediakan pada parameter ? Sehingga, tipe data apapun yang ada pada parameter akan digunakan juga sebagai `Return Type` dari function tersebut. Disinilah fitur **generic** akan kita terapkan.
+Bagus, sekarang kita dapat melakukan assign terhadap semua tipe data. Namun apakah ada cara agar TypeScript dapat melakukan **infer** terhadap tipe data yang kita sediakan pada parameter? Sehingga tipe data apa pun yang ada pada parameter akan digunakan juga sebagai `return type` dari function tersebut. Di sinilah fitur **generic** akan kita terapkan.
 
 ```ts
 function foo<T>(param: T): T {
@@ -69,7 +69,7 @@ function foo<T>(param: T): T {
 }
 ```
 
-Pada kode diatas kita membuat function `foo` menjadi generic ditandai dengan penggunaan `<T>`, dimana type `T` adalah tipe data generic. Artinya, type `T` akan tergantung dari type yang kita spesifikasikan. Seperti contoh berikut :
+Pada kode di atas, kita membuat function `foo` menjadi generic ditandai dengan penggunaan `<T>`, dimana type `T` adalah tipe data generic. Artinya, type `T` akan tergantung dari type yang kita spesifikasikan. Seperti contoh berikut :
 
 ```ts
 function foo<T>(param: T): T {
@@ -78,13 +78,13 @@ function foo<T>(param: T): T {
 }
 
 const a = foo<number>(2)
-a //number
+a // Number
 
 const b = foo<string>('2')
-b //string
+b // String
 ```
 
-Tentu saja jika generic yang kita spesifikasikan tidak sesuai dengan tipe dari `param`, maka typescript akan memberikan error.
+Tentu saja jika generic yang kita spesifikasikan tidak sesuai dengan tipe dari `param`, maka TypeScript akan memberikan error.
 
 ```ts
 const a = foo<number>('2') // Error karena number is not assignable dengan string
@@ -92,13 +92,13 @@ const a = foo<number>('2') // Error karena number is not assignable dengan strin
 const b = foo<string>(2) // Error karena string is not assignable dengan number
 ```
 
-Pada function yang pertama, kita memberikan type `number` sebagai generic dari function `foo`. Sehingga tipe dari param dan tipe data yang di return oleh function akan menjadi number. Sebaliknya pada function kedua kita memberi type `string`, sehingga tipe param dan `Return type` function menjadi string.
+Pada function yang pertama, kita memberikan type `number` sebagai generic dari function `foo`. Sehingga tipe dari param dan tipe data yang di return oleh function akan menjadi number. Sebaliknya pada function kedua kita memberi type `string`, sehingga tipe param dan `return type` function menjadi string.
 
-Kamu bisa menganggap generic seperti function biasa, dapat menerima argumen (dalam hal diatas `type argument`) dan menggunakan argumen tersebut didalamnya. Hanya saja argumen pada generic secara khusus hanya menerima `type` saja.
+Kamu bisa menganggap generic seperti function biasa, dapat menerima argumen (dalam hal di atas `type argument`) dan menggunakan argumen tersebut di dalamnya. Hanya saja argumen pada generic secara khusus hanya menerima `type` saja.
 
-Oke, sekarang kita punya function `foo` yang memiliki `Return type` sesuai dengan tipe yang kita spesifikasi tanpa harus melakukan duplikasi kode. Masalah kita sudah terselesaikan. Tetapi saya ingin menunjukkan satu hal yang menarik !
+Oke, sekarang kita punya function `foo` yang memiliki `return type` sesuai dengan tipe yang kita spesifikasi tanpa harus melakukan duplikasi kode. Masalah kita sudah terselesaikan. Tetapi saya ingin menunjukkan satu hal yang menarik!
 
-Mari coba hilangkan `Type argument` saat kita memanggil function `foo` dan lihat apa yang terjadi.
+Mari coba hilangkan `type argument` saat kita memanggil function `foo` dan lihat apa yang terjadi.
 
 ```ts
 function foo<T>(param: T): T {
@@ -107,13 +107,13 @@ function foo<T>(param: T): T {
 }
 
 const a = foo(2)
-a // tipe data a menjadi 2
+a // Tipe data a menjadi 2
 
 const b = foo('2')
-b //tipe data b menjadi '2'
+b // Tipe data b menjadi '2'
 ```
 
-Tipe data dari variabel `a` dan `b` menjadi sama dengan argumen dari function `foo` 😮😮. Wow apa yang terjadi ?
+Tipe data dari variabel `a` dan `b` menjadi sama dengan argumen dari function `foo` 😮😮. Wow apa yang terjadi?
 
 <Image
   src="/blog/siapa-sangka.webp"
@@ -123,10 +123,10 @@ Tipe data dari variabel `a` dan `b` menjadi sama dengan argumen dari function `f
   alt="siapa-sangka"
 />
 
-Jadi ketika generic digunakan didalam function dan kita tidak memberikan type terhadap generic tersebut, maka typescript akan berusaha melakukan `infering` kepada generic pada saat **runtime**. Pada kasus diatas, `param` memiliki type `T`, jadi typescript akan menyimpulkan bahwa type yang dimiliki oleh `param` adalah sama dengan type yang dimiliki oleh `T`. Begitupula dengan `Return type` dari function tersebut. Sehingga tipe yang kita berikan pada setiap instansiasi function menjadi dinamis dan berbeda-beda sesuai dengan parameter yang kita berikan.
+Jadi ketika generic digunakan di dalam function dan kita tidak memberikan type terhadap generic tersebut, maka TypeScript akan berusaha melakukan `infering` kepada generic pada saat **runtime**. Pada kasus di atas, `param` memiliki type `T`, jadi TypeScript akan menyimpulkan bahwa type yang dimiliki oleh `param` adalah sama dengan type yang dimiliki oleh `T`. Begitu pula dengan `return type` dari function tersebut. Sehingga tipe yang kita berikan pada setiap instansiasi function menjadi dinamis dan berbeda-beda sesuai dengan parameter yang kita berikan.
 
-Satu hal lagi, pada contoh diatas kita menggunakan `const` pada saat mendefinisikan variabel `a` dan `b`. Karena nilai pada `const ` adalah `constant`, maka typescript akan cukup cerdas saat melakukan `infering`. Sehingga tipe data yang didapatkan bukanlah `number` atau `string`, melainkan `2` atau `'2'`. Sebaliknya, jika kita menggunakan `let`, maka tipe yang kita dapatkan adalah `string` atau `number`, karena variabel tersebut mungkin saja berubah.
+Satu hal lagi, pada contoh di atas, kita menggunakan `const` pada saat mendefinisikan variabel `a` dan `b`. Karena nilai pada `const ` adalah `constant`, maka TypeScript akan cukup cerdas saat melakukan `infering`. Sehingga tipe data yang didapatkan bukanlah `number` atau `string`, melainkan `2` atau `'2'`. Sebaliknya, jika kita menggunakan `let`, maka tipe yang kita dapatkan adalah `string` atau `number`, karena variabel tersebut mungkin saja berubah.
 
 ## Penutup
 
-_That's it !_ Ada banyak sekali hal lain yang bisa kita lakukan terhadap _generic_, seperti melakukan `Conditional Type`, `Mapped Type`, dll. Sayangnya kita tidak akan membahasnya pada artikel kali ini (mungkin di artikel selanjutnya). Terimakasih karena sudah membaca sampai akhir. Akhir kata saya ucapkan **Terima kasih :)**.
+That's it! Ada banyak sekali hal lain yang bisa kita lakukan terhadap generic, seperti melakukan `conditional type`, `mapped type`, dll. Sayangnya kita tidak akan membahasnya pada artikel kali ini (mungkin di artikel selanjutnya). Terima kasih karena sudah membaca sampai akhir. Akhir kata, saya ucapkan **terima kasih :)**

@@ -34,8 +34,8 @@ export default function PlayerList() {
         <div className="hidden md:flex gap-4 border-b md:p-2 lg:px-4 text-sm text-muted-foreground font-semibold">
           <div className="">#</div>
           <div className="flex-[2]">Title</div>
-          <div className="flex-[1.5] text-center mr-2 lg:mr-4">Date added</div>
-          <div className="flex-[0.5] text-end">Time</div>
+          <div className="flex-[1.5] text-center mr-2 lg:mr-4">Date Added</div>
+          <div className="flex-[0.5] text-end">Duration</div>
         </div>
         {songs.map((song, i) => (
           <PlayerCard
