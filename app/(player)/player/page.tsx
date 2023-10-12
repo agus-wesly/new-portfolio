@@ -17,9 +17,9 @@ export default function Player() {
 
         <div className="ml-6 hidden md:flex flex-col justify-between">
           <h5 className="text-sm font-bold">Playlist</h5>
-          <h1 className="text-5xl font-[900]">My Top Favorite song</h1>
+          <h1 className="text-5xl font-[900]">My Favorite Songs</h1>
           <p className="text-sm text-muted-foreground font-medium max-w-lg lg:text-base">
-            List of my favorite song. Including twice, avenged sevenfold and
+            List of my favorite songs. Including Twice, Avenged Sevenfold, and
             others. Hope you guys enjoy ^^
           </p>
           <p className="text-sm text-muted-foreground">
@@ -29,9 +29,9 @@ export default function Player() {
       </div>
 
       <div className="space-y-2 mt-2 block md:hidden">
-        <h1 className="text-3xl font-extrabold">Top song</h1>{' '}
+        <h1 className="text-3xl font-extrabold">Top Songs</h1>{' '}
         <p className="text-sm text-muted-foreground font-medium">
-          List of my favorite song. Including twice, avenged sevenfold and
+          List of my favorite songs. Including Twice, Avenged Sevenfold, and
           others. Hope you guys enjoy ^^
         </p>
         <p className="text-sm text-muted-foreground">

@@ -5,11 +5,11 @@ function Project() {
   return (
     <div className="mx-auto text-center w-full mb-10 mt-12 container">
       <h1 className="font-display text-4xl font-extrabold leading-[1.15] text-foreground sm:text-6xl sm:leading-[1.15]">
-        Project
+        Projects
       </h1>
 
       <p className="mt-3 text-foreground font-display sm:text-xl">
-        What i build
+        What I build
       </p>
 
       <div className="mt-10">
@@ -28,10 +28,10 @@ function Project() {
               />
             </div>
 
-            <h3 className="text-lg font-bold">Movieflix</h3>
+            <h3 className="text-lg font-bold">MovieFlix</h3>
 
             <p className="text-foreground/80 text-sm">
-              Movie web built using next 13 app directory
+              Movie web built using Next.js's app directory
             </p>
           </a>
           <a
@@ -48,10 +48,10 @@ function Project() {
               />
             </div>
 
-            <h3 className="text-lg font-bold">Ch-store</h3>
+            <h3 className="text-lg font-bold">Ch-Store</h3>
 
             <p className="text-foreground/80 text-sm">
-              Ecommerce app built using next.js app directory
+              E-commerce app built using Next.js's app directory
             </p>
           </a>
           <a
@@ -68,10 +68,10 @@ function Project() {
               />
             </div>
 
-            <h3 className="text-lg font-bold">Twitter clone app</h3>
+            <h3 className="text-lg font-bold">Twitter Clone App</h3>
 
             <p className="text-foreground/80 text-sm">
-              A twitter website clone built using nuxt 3 + Prisma
+              A Twitter website clone built using Nuxt and Prisma
             </p>
           </a>
         </div>

@@ -66,7 +66,7 @@ export default async function BlogDetailPage({ params }: Props) {
         )}
       >
         <ArrowLeft className="mr-2 h-4 w-4" />
-        See all blog
+        See all post
       </Link>
       <div>
         {post.date && (
@@ -96,7 +96,7 @@ export default async function BlogDetailPage({ params }: Props) {
       <div className="flex justify-center py-6 lg:py-10">
         <Link href="/blog" className={cn(buttonVariants({ variant: 'ghost' }))}>
           <ArrowLeft className="mr-2 h-4 w-4" />
-          See all blog
+          See all post
         </Link>
       </div>
     </article>
