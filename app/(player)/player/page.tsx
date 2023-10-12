@@ -29,9 +29,9 @@ export default function Player() {
       </div>
 
       <div className="space-y-2 mt-2 block md:hidden">
-        <h1 className="text-3xl font-extrabold">Top song</h1>{' '}
+        <h1 className="text-3xl font-extrabold">Top Songs</h1>{' '}
         <p className="text-sm text-muted-foreground font-medium">
-          List of my favorite song. Including twice, avenged sevenfold and
+          List of my favorite songs. Including Twice, Avenged Sevenfold, and
           others. Hope you guys enjoy ^^
         </p>
         <p className="text-sm text-muted-foreground">
